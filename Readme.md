@@ -1,6 +1,6 @@
 # Derrick.js
 
-derrick.js is a simple Javascript library to define and detect custom [time framed] event chains. Derrick uses a simple syntax to define event patterns and to add listeners to them. Triggered events are automatically processed. When Derrick detects a predefined pattern, registerd listeners are envoked. More pattern constraints will be added soon.  Try it [here](http://132.199.139.24/~baa56852/derrick/).
+derrick.js is a simple Javascript library to define and detect custom [time framed] event chains. Derrick uses a simple syntax to define event patterns and to add listeners to them. Triggered events are automatically processed. When Derrick detects a predefined pattern, registerd listeners are envoked. More pattern constraints will be added soon.  Try it [here](http://derrick.regensburger-forscher.de/).
 
 ## Usage
 Include the library file
