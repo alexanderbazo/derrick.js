@@ -1,12 +1,11 @@
 (function () {
-    'use strict';
+    "use strict";
     /*global self*/
 
     var MAX_BUS_LENGTH = 1000,
-        PATTERN_DETECTED = 'PATTERN_DETECTED',
+        PATTERN_DETECTED = "PATTERN_DETECTED",
         bus = [],
         patterns = [],
-        connections = 0,
 
         pack = function () {
             if (bus.length > MAX_BUS_LENGTH) {
@@ -18,7 +17,6 @@
             var i,
                 start = offset - 1,
                 event = null;
-            
             for (i = start; i >= 0; i -= 1) {
                 event = bus[i];
                 if (event.id === id) {
@@ -40,7 +38,6 @@
             if (bus.length < events.length) {
                 return;
             }
-            
             if (bus[bus.length - 1].id !== events[events.length - 1]) {
                 return;
             }
@@ -61,7 +58,7 @@
 
             //Add to loop for better performance ?
             frame = bus[indices[0]].at - bus[indices[indices.length - 1]].at;
-            inFrame = frame <= pattern.frame ||  pattern.frame === -1;
+            inFrame = frame <= pattern.frame || pattern.frame === -1;
             if (inFrame) {
                 self.postMessage({
                     type: PATTERN_DETECTED,
@@ -102,28 +99,28 @@
             patterns = [];
         };
 
-    self.addEventListener('message', function (event) {
+    self.addEventListener("message", function (event) {
         var data = event.data;
         switch (data.cmd) {
-        case 'start':
+        case "start":
             break;
-        case 'flush':
+        case "flush":
             flush();
             break;
-        case 'clear':
+        case "clear":
             clear();
             break;
-        case 'addEvent':
+        case "addEvent":
             addEvent(data.event);
             break;
-        case 'addPattern':
+        case "addPattern":
             addPattern(data.pattern);
             break;
-        case 'removePattern':
+        case "removePattern":
             removePattern(data.pattern);
             break;
         default:
-            self.postMessage('Unknown command: ' + data.msg);
+            self.postMessage("Unknown command: " + data.msg);
         }
     }, false);
 }());

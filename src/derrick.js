@@ -1,20 +1,21 @@
 (function () {
-    'use strict';
+    "use strict";
+    /*eslint-env browser*/
     /*global Derrick*/
     var derrick = {};
     window.Derrick = derrick;
 }());
 
 (function () {
-    'use strict';
+    "use strict";
     /*global Worker, Element, NodeList */
-    var PATTERN_DETECTED = 'PATTERN_DETECTED',
+    var PATTERN_DETECTED = "PATTERN_DETECTED",
         worker,
         listeners = [],
 
         triggerEvent = function (id) {
             worker.postMessage({
-                cmd: 'addEvent',
+                cmd: "addEvent",
                 event: {
                     id: id,
                     at: new Date().getTime()
@@ -45,19 +46,19 @@
             var pathName = window.location.pathname,
                 path = pathName.substr(0, pathName.lastIndexOf("/"));
             worker = new Worker(path + workerScript);
-            worker.addEventListener('message', onWorkerMessage);
+            worker.addEventListener("message", onWorkerMessage);
             worker.postMessage({
-                cmd: 'start'
+                cmd: "start"
             });
         },
 
         addPatternListener = function (id, pattern, callback, frame) {
             worker.postMessage({
-                cmd: 'addPattern',
+                cmd: "addPattern",
                 pattern: {
                     id: id,
                     events: pattern,
-                    frame: (typeof frame === 'undefined') ? -1 : frame
+                    frame: (frame === undefined) ? -1 : frame
                 }
             });
             listeners[id] = callback;
@@ -65,7 +66,7 @@
 
         removePatternListener = function (id) {
             worker.postMessage({
-                cmd: 'removePattern',
+                cmd: "removePattern",
                 pattern: {
                     id: id
                 }

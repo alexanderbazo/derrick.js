@@ -1,0 +1,13 @@
+{
+    "project": {
+        "name": "derrick.js",
+        "description": "derrick.js is a simple JavaScript library to define and detect custom [time framed] event chains.",
+        "version": "0.1.0",
+        "url": ""
+    },
+    "files": {},
+    "modules": {},
+    "classes": {},
+    "classitems": [],
+    "warnings": []
+}

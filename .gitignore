@@ -1,6 +1,7 @@
 # demo files #
 ##############
 demo/
+node_modules/
 
 # Compiled source #
 ###################
